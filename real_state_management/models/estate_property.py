@@ -31,7 +31,7 @@ class EstateProperty(models.Model):
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
         for rec in self:
-            rec.total_area = rec.garden_area * rec.living_area * 2
+            rec.total_area = rec.garden_area + rec.living_area
 
     @api.depends('offer_ids.price')
     def _compute_best_price(self):
